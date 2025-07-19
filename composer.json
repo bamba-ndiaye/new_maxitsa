@@ -3,12 +3,14 @@
     "autoload": {
         "psr-4": {
             "Ndakhamboup\\Projet\\": "src/",
-            "App\\Entity\\": "src/entity",
-            "App\\Core\\Abstract\\": "app/core/abstract",
-            "App\\Core\\": "app/core",
-            "App\\controller\\": "src/controller",
-            "App\\Repository\\":"src/repository",
-            "App\\Service\\":"src/service"
+            "App\\Entity\\": "src/entity/",
+            "App\\Core\\Abstract\\": "app/core/abstract/",
+            "App\\Core\\": "app/core/",
+            "App\\controller\\": "src/controller/",
+            "App\\Repository\\":"src/repository/",
+            "App\\Service\\":"src/service/",
+            "App\\Migration\\":"migrations/",
+            "App\\Seeders\\":"seeders/"
           
         }
     },
@@ -19,6 +21,11 @@
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "^5.6"
+        "vlucas/phpdotenv": "^5.6",
+        "symfony/yaml": "^7.3"
+    },
+     "scripts":{
+        "database:migration": "php migrations/Migration.php",
+        "database:seed":"php console seed"
     }
 }

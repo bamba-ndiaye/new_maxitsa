@@ -11,7 +11,7 @@ use App\Repository\CompteRepository;
 use App\Repository\UsersRepository;
 use App\Service\CompteService;
 use App\Service\SecurityService;
-
+use Symfony\Component\Yaml\Yaml;
 
 class App
 {
@@ -72,4 +72,22 @@ class App
 
         return self::$container[$category][$key];
     }
+
+      private array $services  = [];
+        public function __construct()
+        {
+            $this->loadServices();
+
+            
+        }
+        private function loadServices(){
+            $config = Yaml::parseFile(__DIR__ . '/../config/services.yml');
+            foreach ($config['services'] as $key => $class) {
+                $this->services[$key] = new $class();
+            }
+
+        }
+        public function get(string $name) {
+            return $this->services[$name] ?? null;
+        }
 }

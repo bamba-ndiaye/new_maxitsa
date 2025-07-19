@@ -16,9 +16,9 @@ class Database
         try {
 
             $this->connection = new PDO(
-                DSN,
-                DB_USER,
-                DB_PASSWORD,
+                "pgsql:host=localhost;dbname=maxitsa;port=5432",
+                "postgres",
+                "0000",
                 [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

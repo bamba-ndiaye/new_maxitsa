@@ -1,0 +1,24 @@
+<?php
+
+use App\Core\App;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+
+$app = new App();
+
+$command = $argv[1] ?? null;
+
+switch ($command)
+{
+    case 'migrate':
+
+        $app->get('migration')->run();
+        break;
+    case 'seed':
+
+        $app->get('seeder')->run();
+        break;
+    default:  
+    echo "commande inconnue "  ;    
+}

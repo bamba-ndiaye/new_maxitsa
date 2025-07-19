@@ -1,0 +1,5 @@
+services:
+   # database: App\Core\Database
+   # seeder: App\Seeder\Seeder
+   migration: App\Migration\Migration
+
